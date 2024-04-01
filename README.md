@@ -19,7 +19,7 @@ I wanted to build a split keyboard with trackpad to eliminate the need to move m
     - 54 regular
     - 2 homing
     - 1 1.5U
- - Trackpad mount: (link) Credit to the tallented @korqie on printables (https://www.printables.com/@korqie) for the design and print of the trackpad mount. He can probably sell a print if you can't print one yourself. He's on printables or Discord: Korqie
+ - Trackpad mount: ([link](https://www.printables.com/model/828770-lily58-trackpad-mount)) Credit to the tallented @korqie on printables (https://www.printables.com/@korqie) for the design and print of the trackpad mount. He can probably sell a print if you can't print one yourself. He's on printables or Discord: Korqie
 
 # Building
 I used a couple different guides with some deviations.
