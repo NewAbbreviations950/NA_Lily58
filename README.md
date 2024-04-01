@@ -24,5 +24,18 @@ I wanted to build a split keyboard with trackpad to eliminate the need to move m
 # Building
 I used a couple different guides with some deviations.
 
- - For the basic build including diodes, hot swap sockets and controllers this guide was quite good: https://www.rearvuemirror.com/guides/lily58buildguide The only things I did differently was that I used the Mill Max pins as they're already the perfect length. I also used the male pins from Ali-express instead of sockets in the 4 holes for the screen (the pins the controller uses for I2c) and soldered sockets on to the screens instead. 
-![IMG_20231203_202821](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/a1e64bca-6152-40c4-a40f-ffc7e234fc88)
+ - For the basic build including diodes, hot swap sockets and controllers this guide was quite good: https://www.rearvuemirror.com/guides/lily58buildguide The only things I did differently was that I used the Mill Max pins as they're already the perfect length. I also used the male pins from Ali-express instead of sockets in the 4 holes for the screen (the pins the controller uses for I2c) and soldered sockets on to the screens instead.
+  - Male pins on the top of the PCB for the screen
+![20240401_195639](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/65faca73-8262-45ed-a4ab-3ffa069ae768)
+
+  - Sockets on the back of the screen
+![20240401_195934](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/8e22ae9e-5059-46f9-947c-10105a9813b7)
+
+  - Male pins sticking through the PCB ready to attach the trackpad controller. (Don't mind the red wire. I messed up one of the 4 solder pads on the top that enable I2C so I connected the pin to the controller with the red wire instead)
+![20240401_195809](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/9670ea8e-1abf-4238-a689-eb9dd40adfa4)
+
+
+- For the trackpad, the store that sold the kit has a good guide based on the corne ckbd keyboard: https://beekeeb.com/cirque-trackpad-i2c-on-corne-keyboard/ So for my build I'm using the 40mm trackpad but that doesnt make a difference. Just check the resistors on the back match the guide in that the trackpad is configured for I2C mode. I didnt worry about the voltage as I'm powering through I2C.
+
+ - Trackpad controller attached. Remember to check the pins are in the same orientation as the OLED (eg. GND pin is attached to GND socket on both OLED and trackpad controller). You can kind of see the resistors here that are described in the trackpad guide. The masking tape is just for isolation until I get kapton tape.
+![20240401_195844](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/3f1cfa15-1678-4b76-92d8-a1aaf19bc9a9)
