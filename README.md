@@ -19,7 +19,7 @@ I wanted to build a split keyboard with trackpad to eliminate the need to move m
     - 54 regular
     - 2 homing
     - 1 1.5U
- - Access to 3D printer for the trackpad mount.
+ - Trackpad mount: (link) Credit to the tallented @korqie on printables (https://www.printables.com/@korqie) for the design and print of the trackpad mount. He can probably sell a print if you can't print one yourself. He's on printables or Discord: Korqie
 
 # Building
 I used a couple different guides with some deviations.
@@ -44,4 +44,9 @@ I used a couple different guides with some deviations.
 ![20240401_202115](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/29ef0400-3733-4206-8205-ead879b7fffb)
 
 # Getting it running
-The trackpad worked out of the box but was very unresponsive but adjusting the CIRQUE_PINNACLE_ATTENUATION to EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_1X (the most sensitive) fixed the issue. From there I have customised the layout on the OLEDS a little. I have it set up with dynamic macros and while recording in either slot 1 or slot 2 the OLED will display REC1 or REC2. Once a macro is recorded it will display PLY1 or PLY2 to show you have a macro recorded. I also included Luna the keyboard pet (https://www.reddit.com/r/olkb/comments/lmtgxc/introducing_luna_the_qmk_keyboard_pet/) but as she was made for the smaller OLEDs the animattion was messed up. I've stretched her out horizontally but I'm going to have to make whole new animations to get her proportions correct.
+The trackpad worked out of the box but was very unresponsive but adjusting the CIRQUE_PINNACLE_ATTENUATION to EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_1X (the most sensitive) fixed the issue. From there I have customised the layout on the OLEDS a little. I have it set up with dynamic macros and while recording in either slot 1 or slot 2 the OLED will display REC1 or REC2. Once a macro is recorded it will display PLY1 or PLY2 to show you have a macro recorded. I also included Luna the keyboard pet (https://www.reddit.com/r/olkb/comments/lmtgxc/introducing_luna_the_qmk_keyboard_pet/) but as she was made for the smaller OLEDs the animattion was messed up. I've stretched her out horizontally but I'm going to have to make whole new animations to get her proportions correct. https://www.youtube.com/shorts/IGh5hdUlp_4 
+The trackpad is glued into the ring of the mount ![TouchPadMount](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/c1695ec6-7701-483f-af2e-918a419f539e)
+
+with the notch at 9 o'clock when looking from the front or 3 o'clock when looking from the back. This is so the pointer moves the right direction. The angle the trackpad is rotated can be changed in the firmware so it isn't critical. The trackpad mount is mounted to the PCB using the screw holes for the posts that hold the plexiglass protector for the OLED.
+![20240401_213422](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/baca9be9-3000-4e85-bdce-05682fdf73e8)
+
