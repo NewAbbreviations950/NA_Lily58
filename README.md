@@ -43,3 +43,5 @@ I used a couple different guides with some deviations.
  - I used a 1U keycap on the right thumb to accomodate the trackpad
 ![20240401_202115](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/29ef0400-3733-4206-8205-ead879b7fffb)
 
+# Getting it running
+The trackpad worked out of the box but was very unresponsive but adjusting the CIRQUE_PINNACLE_ATTENUATION to EXTREG__TRACK_ADCCONFIG__ADC_ATTENUATE_1X (the most sensitive) fixed the issue. From there I have customised the layout on the OLEDS a little. I have it set up with dynamic macros and while recording in either slot 1 or slot 2 the OLED will display REC1 or REC2. Once a macro is recorded it will display PLY1 or PLY2 to show you have a macro recorded. I also included Luna the keyboard pet (https://www.reddit.com/r/olkb/comments/lmtgxc/introducing_luna_the_qmk_keyboard_pet/) but as she was made for the smaller OLEDs the animattion was messed up. I've stretched her out horizontally but I'm going to have to make whole new animations to get her proportions correct.
