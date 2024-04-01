@@ -39,3 +39,7 @@ I used a couple different guides with some deviations.
 
  - Trackpad controller attached. Remember to check the pins are in the same orientation as the OLED (eg. GND pin is attached to GND socket on both OLED and trackpad controller). You can kind of see the resistors here that are described in the trackpad guide. The masking tape is just for isolation until I get kapton tape.
 ![20240401_195844](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/3f1cfa15-1678-4b76-92d8-a1aaf19bc9a9)
+
+ - I used a 1U keycap on the right thumb to accomodate the trackpad
+![20240401_202115](https://github.com/NewAbbreviations950/NA_Lily58/assets/104692825/29ef0400-3733-4206-8205-ead879b7fffb)
+
