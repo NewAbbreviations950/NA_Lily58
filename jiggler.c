@@ -3,7 +3,7 @@ enum custom_keycodes {
     KC_JIGG = SAFE_RANGE,
 };
 
-/*declare booean for jiggler*/
+/*declare boolean for jiggler*/
 bool is_jiggling = false;
 
 /*timers*/
