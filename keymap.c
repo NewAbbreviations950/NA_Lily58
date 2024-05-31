@@ -508,6 +508,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     //return true;
     return process_record_keymap(keycode, record) && process_record_secrets(keycode, record);
-    
+            #ifdef OLED_ENABLE
+            && process_record_oled(keycode, record)
+            #endif
+            ;
+
 }
 
