@@ -295,7 +295,7 @@ static uint32_t idle_callback(uint32_t trigger_time, void* cb_arg) {
     if (is_jiggling){
         SEND_STRING(SS_TAP(X_F15));
         return mouse_interval;
-    }
+    } endif
 }
 
 
