@@ -429,64 +429,6 @@ bool oled_task_user(void) {
 #endif
 
 
-//layer_state_t layer_state_set_user(layer_state_t state) {
-//  return update_tri_layer_state(state, _LEFT, _RIGHT, _ADJUST);
-//}
-
-//SSD1306 OLED update loop, make sure to enable OLED_ENABLE=yes in rules.mk
-//#ifdef OLED_ENABLE
-//
-//oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-//  if (!is_keyboard_master())
-//    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-//  return rotation;
-//}
-
-// When you add source files to SRC in rules.mk, you can use functions.
-//const char *read_layer_state(void);
-//const char *read_logo(void);
-//void set_keylog(uint16_t keycode, keyrecord_t *record);
-//const char *read_keylog(void);
-//const char *read_keylogs(void);
-
-// const char *read_mode_icon(bool swap);
-// const char *read_host_led_state(void);
-// void set_timelog(void);
-// const char *read_timelog(void);
-
-
-//bool oled_task_user(void) {
-//     if (is_keyboard_master()) {
-    // Host Keyboard Layer Status
-//    oled_write_P(PSTR("Layer:\n "), false);
-//
-//    switch (get_highest_layer(layer_state)) {
-//        case _QWERTY:
-//            oled_write_P(PSTR("Default\n"), false);
-//            break;
-//        case _LEFT:
-//            oled_write_P(PSTR("LEFT\n"), false);
-//            break;
-//        case _RIGHT:
-//            oled_write_P(PSTR("RIGHT\n"), false);
-//            break;
-//       default:
-//            // Or use the write_ln shortcut over adding '\n' to the end of your string
-//            oled_write_ln_P(PSTR("Undefined"), false);
-//    }
-//
-    // Host Keyboard LED Status
-//    led_t led_state = host_keyboard_led_state();
-//    oled_write_P(led_state.num_lock ? PSTR("NUM ") : PSTR("    "), false);
-//    oled_write_P(led_state.caps_lock ? PSTR("CAP ") : PSTR("    "), false);
-//    oled_write_P(led_state.scroll_lock ? PSTR("SCR ") : PSTR("    "), false);
-//
-//     }
-//
-//    return false;
-//}
-//#endif // OLED_ENABLE
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // on every key event start or extend `idle_callback()` deferred execution after IDLE_TIMEOUT_MS
@@ -512,7 +454,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
             break;
     }
-    //return true;
+    
     return process_record_keymap(keycode, record) && process_record_secrets(keycode, record);
             #ifdef OLED_ENABLE
             && process_record_oled(keycode, record)
