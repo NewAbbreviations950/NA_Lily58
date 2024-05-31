@@ -9,6 +9,7 @@ enum layer_number {
 
 enum custom_keycodes {
     NO_NOK = SAFE_RANGE,
+    KC_JIGG,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -43,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Caps |      | Left | Down | Right| Paste|-------.    ,-------|      |   4  |   5  |   6  |   =  |      |
  * |------+------+------+------+------+------|   |   |    |       |------+------+------+------+------+------|
- * |      |      |      |      |      |      |-------|    |-------|      |   1  |   2  |   3  |      |      |
+ * |Jiggle|      |      |      |      |      |-------|    |-------|      |   1  |   2  |   3  |      |      |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *                   | LAlt | LGUI |LEFT  | /Space  /       \Enter \  |   0  |RIGHT |   ,  |
  *                   |      |      |      |/       /         \      \ |      |      |      |
@@ -53,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______, _______, _______, _______,                   KC_PSLS, KC_PAST, KC_PMNS, DM_PLY1, DM_PLY2, KC_NUM,
   KC_NUM,  _______, _______, KC_UP,   KC_BTN1, LCTL(KC_C),                KC_BTN2, KC_7,    KC_8,    KC_9,    KC_PPLS, _______,
   KC_CAPS, _______, KC_LEFT, KC_DOWN, KC_RGHT, LCTL(KC_V),                _______, KC_4,    KC_5,    KC_6,    S(KC_0), _______,
-  _______, _______, _______, _______, _______, _______, KC_GRV,  _______, _______, KC_1,    KC_2,    KC_3,    _______, _______,
+  KC_JIGG, _______, _______, _______, _______, _______, KC_GRV,  _______, _______, KC_1,    KC_2,    KC_3,    _______, _______,
                              _______, _______, _______, _______, _______, KC_P0,   _______, KC_COMM
 ),
 /* RIGHT
@@ -282,6 +283,21 @@ static void render_luna(int LUNA_X, int LUNA_Y) {
 
 /* KEYBOARD PET END */
 
+/*declare boolean for jiggler*/
+bool is_jiggling = false;
+
+/*timers*/
+uint32_t idle_timeout = 30000; // (after 30s)
+uint32_t mouse_interval = 10000; // (every 10s)
+
+static uint32_t idle_callback(uint32_t trigger_time, void* cb_arg) {
+    // now idle
+    if (is_jiggling){
+        SEND_STRING(SS_TAP(X_F15));
+        return mouse_interval;
+    }
+}
+
 
 /*Dynamic macro hooks to display on oled */
 
@@ -315,6 +331,11 @@ static void print_logo_narrow(void) {
 
     oled_set_cursor(0, 10);
     oled_write(" WPM", false);
+
+    if (is_jiggling) {
+        oled_set_cursor(0, 12);
+        oled_write_P(PSTR("Jiggle"), false);
+    }
 }
 
 static void print_status_narrow(void) {
@@ -455,15 +476,32 @@ bool oled_task_user(void) {
 //#endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case NO_NOK:
+
+// on every key event start or extend `idle_callback()` deferred execution after IDLE_TIMEOUT_MS
+  static deferred_token idle_token = INVALID_DEFERRED_TOKEN;
+
+      if (!extend_deferred_exec(idle_token, idle_timeout)) {
+        idle_token = defer_exec(idle_timeout, idle_callback, NULL);
+    }
+
+  
+  switch (keycode) {
+      case NO_NOK:
             if (record->event.pressed) {
                 SEND_STRING("," SS_TAP(X_SLSH));
             }
 
-            return false;
+            break;
+     
+      case KC_JIGG:
+            if (record->event.pressed) {
+                    is_jiggling = !is_jiggling; /*flip boolean to true*/
+            }
+
+            break;
     }
 
   return true;
+
 }
 
