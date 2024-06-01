@@ -344,10 +344,6 @@ static void print_logo_narrow(void) {
     oled_set_cursor(0, 10);
     oled_write(" WPM", false);
 
-    if (is_jiggling) {
-        oled_set_cursor(0, 13);
-        oled_write_P(PSTR("Jiggle"), false);
-    }
 }
 
 static void print_status_narrow(void) {
@@ -399,6 +395,16 @@ static void print_status_narrow(void) {
             oled_set_cursor(5, 5);
             oled_write_P(PSTR("PLY2"), false);
         }
+
+    switch (is_jiggling) {
+        case true:
+            oled_set_cursor(0, 7);
+            oled_write_P(PSTR("Jiggle"), false);
+            break;
+        default:
+            oled_set_cursor(0, 7);
+            oled_write_P(PSTR("      "), false);
+   }
 
 
     /* KEYBOARD PET RENDER START */
