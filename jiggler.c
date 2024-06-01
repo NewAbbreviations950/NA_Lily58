@@ -3,6 +3,17 @@ enum custom_keycodes {
     KC_JIGG = SAFE_RANGE,
 };
 
+__attribute__((weak))
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) { return true; }
+
+__attribute__((weak))
+bool process_record_secrets(uint16_t keycode, keyrecord_t *record) { return true; }
+
+#ifdef OLED_ENABLE
+__attribute__((weak))
+bool process_record_oled(uint16_t keycode, keyrecord_t *record) { return true; }
+#endif
+
 /*declare boolean for jiggler*/
 bool is_jiggling = false;
 
@@ -37,15 +48,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
     }
 
-  return true;
+  return process_record_keymap(keycode, record) && process_record_secrets(keycode, record)
+            #ifdef OLED_ENABLE
+            && process_record_oled(keycode, record)
+            #endif
+            ;
 }
 
 /*print status of jiggler to left screen under the logo*/
 static void print_logo_narrow(void) {
     
-    if (is_jiggling) {
-        oled_set_cursor(0, 12);
-        oled_write_P(PSTR("Jiggle"), false);
-    }
+    switch (is_jiggling) {
+        case true:
+            oled_set_cursor(0, 7);
+            oled_write_P(PSTR("Jiggle"), false);
+            break;
+        default:
+            oled_set_cursor(0, 7);
+            oled_write_P(PSTR("      "), false);
+   }
     
 }
