@@ -57,6 +57,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define OLED_DISPLAY_64X128
 #define OLED_TIMEOUT 120000
 #define OLED_BRIGHTNESS 160
+#define DYNAMIC_MACRO_SIZE 512
 
 #define SPLIT_WPM_ENABLE
 #define SPLIT_POINTING_ENABLE
