@@ -378,14 +378,16 @@ static void print_status_narrow(void) {
 
     /*Dynamic macros */
 
-    if (is_recording) {
-        if (cached_direction == 1) {
+    switch (cached_direction) {
+        case 1:
             oled_set_cursor(0, 5);
             oled_write_P(PSTR("REC1"), false);
-        } if (cached_direction == -1) {
+            break;
+        case -1:
             oled_set_cursor(5, 5);
             oled_write_P(PSTR("REC2"), false);
-        }
+            break;
+        
     }
     if (stop_direction == 1) {
             oled_set_cursor(0, 5);
@@ -395,6 +397,8 @@ static void print_status_narrow(void) {
             oled_set_cursor(5, 5);
             oled_write_P(PSTR("PLY2"), false);
         }
+
+    /*jiggler*/
 
     switch (is_jiggling) {
         case true:
