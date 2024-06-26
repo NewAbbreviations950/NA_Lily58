@@ -4,6 +4,7 @@
 
 # Build Goal
 I wanted to build a split keyboard with trackpad to eliminate the need to move my hands from the keyboard as much as possible. I also liked the screens on each half but couldn't find a guide that had a screen on both halves and a trackpad. Seeing as both the screens ans trackpad coould be run over I2c I figured that it should be possible to have both if they had different addresses. As it turns out, it worked!
+
 I have now added a key tapper to function like a mouse jiggler so when it's active the computer won't go to sleep and you're teams or discord status stays active. It sends the F15 keycode every thirty seconds after thirty seconds of inactivity while active. It is activated via a custom keycode. It's all included and working in my keymap file or just the code you need to make it work on another keyboard is in the jiggler.c file.
 
 # BOM
