@@ -1,6 +1,8 @@
 ## NA_Lily58
 #Repository for my lily58 build
 
+#moved to https://github.com/NewAbbreviations950/qmk_firmware/tree/NA_lily58/keyboards/lily58/keymaps/NA_lily58 as of 08.07.2024
+
 
 # Build Goal
 I wanted to build a split keyboard with trackpad to eliminate the need to move my hands from the keyboard as much as possible. I also liked the screens on each half but couldn't find a guide that had a screen on both halves and a trackpad. Seeing as both the screens ans trackpad coould be run over I2c I figured that it should be possible to have both if they had different addresses. As it turns out, it worked!
