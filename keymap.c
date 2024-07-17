@@ -8,8 +8,10 @@ enum layer_number {
 };
 
 enum custom_keycodes {
-    NO_NOK = SAFE_RANGE,
-    KC_JIGG,
+    NO_NOK = SAFE_RANGE, // Norwegian currency symbol
+    KC_JIGG, // F15 keypress every 30 seconds when inactive
+    DE_LEFT, // Windows switch desktop left
+    DE_RIGHT, // Windows switch desktop right
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -61,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------.                    ,-----------------------------------------.
  * |  F1  |  F2  |  F3  |  F4  |  F5  |  F6  |                    |  F7  |  F8  |  F9  |  F10 |  F11 |  F12 |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |      |      |      |  [   |   ]  |      |                    |   <  |   >  |      |      |      | Home |
+ * |      |      |      |  [   |   ]  |      |                    |   <  |   >  |D_LEFT|D_RIGT|      | Home |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * |      |      |      |  (   |   )  |      |-------.    ,-------|   ?  |   '  |   "  |      |      | End  |
  * |------+------+------+------+------+------|       |    |       |------+------+------+------+------+------|
@@ -73,10 +75,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RIGHT] = LAYOUT(
-  KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5,   KC_F6,                         KC_F7,        KC_F8,     KC_F9,   KC_F10,  KC_F11,  KC_F12,
-  _______, _______, _______,ALGR(KC_8),ALGR(KC_9),_______,                   KC_NUBS,      S(KC_NUBS),_______, _______, _______, KC_HOME,
-  _______, _______, _______,RSFT(KC_8),RSFT(KC_9),_______,                   LSFT(KC_MINS),KC_NUHS,   S(KC_2), _______, _______, KC_END,
-  _______, _______, _______,ALGR(KC_7),ALGR(KC_0),_______, _______, _______, ALGR(KC_RBRC),NO_NOK,    _______, _______, _______, _______,
+  KC_F1,   KC_F2,   KC_F3,  KC_F4,   KC_F5,   KC_F6,                         KC_F7,        KC_F8,     KC_F9,   KC_F10,   KC_F11,  KC_F12,
+  _______, _______, _______,ALGR(KC_8),ALGR(KC_9),_______,                   KC_NUBS,      S(KC_NUBS),DE_LEFT, DE_RIGHT, _______, KC_HOME,
+  _______, _______, _______,RSFT(KC_8),RSFT(KC_9),_______,                   LSFT(KC_MINS),KC_NUHS,   S(KC_2), _______,  _______, KC_END,
+  _______, _______, _______,ALGR(KC_7),ALGR(KC_0),_______, _______, _______, ALGR(KC_RBRC),NO_NOK,    _______, _______,  _______, _______,
                                 _______, _______, _______, _______, _______, _______,      _______,   _______
 ),
 /* ADJUST
@@ -462,6 +464,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       case KC_JIGG:
             if (record->event.pressed) {
                     is_jiggling = !is_jiggling; /*flip boolean to true*/
+            }
+
+            break;
+
+    case DE_LEFT:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LGUI(SS_LCTL(SS_TAP(X_LEFT))));
+            }
+
+            break;
+
+    case DE_RIGHT:
+            if (record->event.pressed) {
+                SEND_STRING(SS_LGUI(SS_LCTL(SS_TAP(X_RIGHT))));
             }
 
             break;
