@@ -1,7 +1,7 @@
 ## NA_Lily58
 #Repository for my lily58 build
 
-#moved to https://github.com/NewAbbreviations950/qmk_firmware/tree/NA_lily58/keyboards/lily58/keymaps/NA_lily58 as of 08.07.2024
+#moved to https://github.com/NewAbbreviations950/qmk_firmware/tree/NA_lily58/keyboards/lily58/keymaps/NA_lily58 as of 08.07.2024 Please use this instead as it fixes some bugs with the OLED screen.
 
 
 # Build Goal
